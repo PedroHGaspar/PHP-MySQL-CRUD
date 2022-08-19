@@ -15,3 +15,5 @@ Algumas informações relevantes sobre tabelas:
     LONGTEXT - String sem tamanho definido. Bom para cases que terá um texto grande, como algum contato de suporte, algum texto grande do site ou coisas do tipo. (tamanho dinâmico)
 
     BOOLEAN - true(1) ou false(0). Útil para campos onde a resposta será sim ou não.[ "O preço é " . (membroClube ? "R$50,00" : "R$100,00") ]
+
+    hh
