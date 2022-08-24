@@ -46,3 +46,53 @@ SELECT preco * estoque FROM 'livros' - Irá calcular o preço total de todos os 
 
 
 SELECT preco * estoque as valorTotalEmEstoque FROM 'livros' - Essa é uma dica muito importante que serve para "dar apelido" às colunas do SQL. Ao invés da coluna se chamar preco * estoque no DB ou no PHP, ela passará a se chamar valorTotalEmEstoque e não necessita mais colocar o operador *.
+
+
+
+
+---------------------UPDATE------------------------
+
+
+UPDATE livros SET autor = "João Oliveira" WHERE id = 2 - Aqui está falando para, na tabela livros, trocar o autor do id = 2 para João Oliveira. Então o autor que antes estava no id2 agora não estará mais,agora terá o João Oliveira como autor.
+
+NUNCA, JAMAIS esquecer o WHERE id = 2, ou WHERE assuntos = blabla, pois com o WHERE você diz exatamente aonde você quer fazer a alteração, se você não colocar o WHERE ele vai alterar o banco de dados INTEIRO, e vai cagar tudo. PRECISA DO WHERE.
+
+
+
+
+---------------------DELETE------------------------
+
+
+DELETE FROM livros WHERE id = 2 - Ele irá deletar o livros com ID 2, ou seja, apenas o 2. NÃO ESQUECER DO WHERE, se esquecer do WHERE irá apagar o banco de dados inteiro e ai é F total.
+
+
+
+
+---------------------LIKE-IN------------------------
+
+
+SELECT * FROM veiculos WHERE LIKE 'Peu%' - Essa dica é MUITO VALIOSA. Quando se colocar o LIKE e o % daquela maneira ali, tudo que tiver no banco de dados que começa com 'Peu' irá trazer as informações. Se tiver '%Peu%' se houver em qualquer lugar da palavra (começo, meio, fim) a palavra 'Peu' irá trazer todas as informações.
+
+SELECT FROM veiculos WHERE modelo LIKE '%Passion%' - Isso irá trazer todos os modelos da tabela veiculos que tem o nome Passion.
+
+SELECT FROM veiculos WHERE modelo LIKE '%5P%' - Isso irá trazer todos os modelos da tabela veiculos que tem os carros com 5 portas.
+
+Essa dica do LIKE é valiosíssima para usar em barras de pesquisa. Por exemplo, um input de uma tabela, ou um imput de uma pesquisa. Se uma pessoa pesquisar "Copa", "Copa mundo", "Copa do mundo" ou qualquer coisa parecida, se colocar o LIKE com %%, tudo que for relacionado a Copa do Mundo irá ser mostrado para a pessoa.
+
+
+SELECT * FROM veiculos WHERE id IN (10, 11, 13, 14) - Isso irá trazer os veiculos com id 10, 11, 13 e 14.
+
+SELECT * FROM veiculos WHERE modelo IN ('C3', 'C4') - Isso irá trazer todos os veículos com o modelo C3 ou C4.
+
+
+
+
+---------------------Agrupando resultados------------------------
+
+
+SELECT * FROM compras, livros, clientes WHERE compras.id_cliente = clientes.id AND compras.id_livro = livros.id
+
+
+SELECT sompras.id, compras.data AS dataDaCompra, livros.preco AS precoDoLivro, livros.assunto AS assuntoDoLivro, clientes.nome AS nomeDoCliente FROM compras, livros, clientes WHERE compras.id_cliente = clientes.id AND comppras.id_livro = livros.id
+
+Essa tabela acima irá juntas as 3 tabelas em uma única só, e pegar somente as informações necessárias que precisamos para fazer aquilo que queremos. E também ela irá dar apelidos para as variáveis.
