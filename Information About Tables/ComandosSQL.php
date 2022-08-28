@@ -1,0 +1,98 @@
+-------------STRUCTURE QUERY LANGUAGE-------------
+
+
+SELECT * FROM `veiculos` - Vai selecionar tudo(*) da tabela veiculos.
+
+
+SELECT fabricante, modelo FROM `veiculos` - Vai selecionar as colunas do fabricante e o modelo da tabela veiculos.
+
+
+SELECT * FROM `veiculos` WHERE fabricante = "citroen" - Vai chamar apenas os veiculos onde o fabricante é citroen.
+
+
+SELECT * FROM `veiculos` WHERE fabricante = "citroen" LIMIT 10 - Vai chamar apenas os veiculos onde o fabricante é citroen e irá buscar apenas 10 veículos.
+
+
+SELECT * FROM veiculos WHERE fabricante = "citroen" AND id > 10 - Irá trazer todos os veiculos citroen que têm o ID maior que 10. Pode ser combinado vários operadores lógicos para buscar informações no DB.
+
+
+
+
+-----------------------ASC-DESC--------------------------
+
+
+SELECT * FROM `veiculos` ORDER BY fabricante ASC/DESC - Irá selecionar todos os fabricantes da tabela veiculos. O comando ASC vai do MENOR PRO MAIOR, e DESC serve do MAIOR PRO MENOR. Pode ser ordenado por datas, ids, ordem alfabética, qualquer coisa que quiser, contanto que seja possível distuinguir as informações. Data da compra por exemplo, se ordenada com ASC irá da última compra até a primeira compra, e se for ordenada com DESC irá ser da última compra até a primeira.
+
+
+
+
+---------------------COUNT-AVG-SUM------------------------
+
+
+SELECT * FROM veiculos WHERE fabricante = "peugeot" AND veiculo = "106" - Irá pegar os veículos do fabricante peugeot com o número 106. Porém, irá vir vários carros do modelo 106, pois nenhum carro popular é único. A funcção que será usada para ver quantos carros do modelo 106 têm no sistema, é só usar a função COUNT:
+
+SELECT COUNT(*) FROM veiculos WHERE fabticante = "peugeot" AND veiculos = "106"
+
+A função acima irá retornar quantos veículos com a numeração 106 estão disponíveis no sistema.
+
+
+SELECT SUM(preco) FROM livros - A função SUM irá somar todos os precos da coluna 'preco' da tabela livros e irá retornar o valor exato de todos os livros somados, independente se um custa 50, 10, 1000, ele irá somar todos e retornar um valor.
+
+
+SELECT AVG(preco) FROM livros - A função AVG(average) irá calcular a média de todos os preços da coluna 'preco' da tabela livros e irá retornar o valor exato da média de todos os livros somados.
+
+
+SELECT preco * estoque FROM 'livros' - Irá calcular o preço total de todos os livros juntos. Pode usar cálculo diretamente no DB para sabermos exatamente o que tem no estoque e o valor total de cada coisa específica.
+
+
+SELECT preco * estoque as valorTotalEmEstoque FROM 'livros' - Essa é uma dica muito importante que serve para "dar apelido" às colunas do SQL. Ao invés da coluna se chamar preco * estoque no DB ou no PHP, ela passará a se chamar valorTotalEmEstoque e não necessita mais colocar o operador *.
+
+
+
+
+---------------------UPDATE------------------------
+
+
+UPDATE livros SET autor = "João Oliveira" WHERE id = 2 - Aqui está falando para, na tabela livros, trocar o autor do id = 2 para João Oliveira. Então o autor que antes estava no id2 agora não estará mais,agora terá o João Oliveira como autor.
+
+NUNCA, JAMAIS esquecer o WHERE id = 2, ou WHERE assuntos = blabla, pois com o WHERE você diz exatamente aonde você quer fazer a alteração, se você não colocar o WHERE ele vai alterar o banco de dados INTEIRO, e vai cagar tudo. PRECISA DO WHERE.
+
+
+
+
+---------------------DELETE------------------------
+
+
+DELETE FROM livros WHERE id = 2 - Ele irá deletar o livros com ID 2, ou seja, apenas o 2. NÃO ESQUECER DO WHERE, se esquecer do WHERE irá apagar o banco de dados inteiro e ai é F total.
+
+
+
+
+---------------------LIKE-IN------------------------
+
+
+SELECT * FROM veiculos WHERE LIKE 'Peu%' - Essa dica é MUITO VALIOSA. Quando se colocar o LIKE e o % daquela maneira ali, tudo que tiver no banco de dados que começa com 'Peu' irá trazer as informações. Se tiver '%Peu%' se houver em qualquer lugar da palavra (começo, meio, fim) a palavra 'Peu' irá trazer todas as informações.
+
+SELECT FROM veiculos WHERE modelo LIKE '%Passion%' - Isso irá trazer todos os modelos da tabela veiculos que tem o nome Passion.
+
+SELECT FROM veiculos WHERE modelo LIKE '%5P%' - Isso irá trazer todos os modelos da tabela veiculos que tem os carros com 5 portas.
+
+Essa dica do LIKE é valiosíssima para usar em barras de pesquisa. Por exemplo, um input de uma tabela, ou um imput de uma pesquisa. Se uma pessoa pesquisar "Copa", "Copa mundo", "Copa do mundo" ou qualquer coisa parecida, se colocar o LIKE com %%, tudo que for relacionado a Copa do Mundo irá ser mostrado para a pessoa.
+
+
+SELECT * FROM veiculos WHERE id IN (10, 11, 13, 14) - Isso irá trazer os veiculos com id 10, 11, 13 e 14.
+
+SELECT * FROM veiculos WHERE modelo IN ('C3', 'C4') - Isso irá trazer todos os veículos com o modelo C3 ou C4.
+
+
+
+
+---------------------Agrupando resultados------------------------
+
+
+SELECT * FROM compras, livros, clientes WHERE compras.id_cliente = clientes.id AND compras.id_livro = livros.id
+
+
+SELECT sompras.id, compras.data AS dataDaCompra, livros.preco AS precoDoLivro, livros.assunto AS assuntoDoLivro, clientes.nome AS nomeDoCliente FROM compras, livros, clientes WHERE compras.id_cliente = clientes.id AND comppras.id_livro = livros.id
+
+Essa tabela acima irá juntas as 3 tabelas em uma única só, e pegar somente as informações necessárias que precisamos para fazer aquilo que queremos. E também ela irá dar apelidos para as variáveis.
