@@ -14,14 +14,22 @@ if(count($_POST) > 0){
     if(empty($email)){
         $erro = "Preencha o e-mail";
     }
+
+    if(!empty($nascimento)){
+        $pedacos = explode('/', $nascimento);
+        if(count($tmp) == 3){
+            $nascimento = implode('-', array_reverse($pedacos));/*A função explode do php faz com que tudo seja "explode" e seja transformado em array, em seguida, a função array_reverse é uma function do php que faz com que tudo se inverta. O que era ano/mes/dia agora vai ser dia/mes/ano*/
+            /*A função implode é uma função do php que faz com que uma matriz seja transformada em uma string.*/ 
+        }
+            else{
+                $erro = "A data de nascimento deve seguir o padrão D/M/A.";
+            }
+    }
+
     if($erro == true){
         echo ("<p><b>$erro</b></p>");
     }else{
-        if(!empty($nascimento)){
-            $pedacos = implode('-' ,array_reverse(explode('/', $nascimento)));/*A função explode do php faz com que tudo seja "explode" e seja transformado em array, em seguida, a função array_reverse é uma function do php que faz com que tudo se inverta. O que era ano/mes/dia agora vai ser dia/mes/ano*/
-            /*A função implode é uma função do php que faz com que uma matriz seja transformada em uma string.*/ 
-            $nascimento = 
-        }
+
     }
 
 }
