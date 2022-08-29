@@ -7,6 +7,23 @@ h1{
     margin-bottom: 16px;
 }
 
+.content{
+    padding: 15px 14px;
+    text-align: center;
+    font-weight: 540;
+    font-size: 14px;
+    color: #ffffff;
+    text-transform: UPPERCASE;
+}
+
+.w3-input{
+    border-radius: 5px;
+    width: 50% !important;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+
 table{
     width:100%;
     table-layout: fixed;
@@ -65,3 +82,53 @@ section{
     ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
 }   /*Esse aqui no final serve para aparecer a scrollbar quando a lista começar a ter muitos itens.*/
+
+.buttonSize{
+    font-size: 17px;
+}
+
+button{
+    padding: 18px 30px; /*O primeiro padding aumenta altura, segundo padding aumentar comprimento*/
+    font-size: 16px;
+    border: none;
+    position: relative;/*Fazer o button ficar na posição correta*/
+    cursor: pointer;
+    /* box-sizing: border-box; */
+    overflow: hidden;/*Scrollabr off*/
+    background-color: rgb(43, 43, 43);/*cor fundo do botao*/
+    border-radius: 5px;/*borda arredondada*/
+    min-width: 210px;
+    color: #ffffff;
+    /* z-index: 0; */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.5s;/*Essa transition é para aparecer a cor rosa quando passar o mouse. O tempo é o quanto vai demorar pra aparecer o rosa.*/
+}
+
+button, input {
+    overflow: hidden !important;
+}
+
+button::before{
+    content: "";/*content vazio cria uma "coisa" invisível. Que é o flash branco que irá passar pelo botão.*/
+    position: absolute;/*Position absolute vai fazer com que passe por cima do botão sem nenhum dificuldade.*/
+    /* display: block; */
+    top: 0; /*margin top*/
+    left: -50px; /*A "coisa" invisível fica -50px para a esquerda, ficando totalmente escondida de quem vê o botão, aparecendo só quando passa o mouse.*/
+    width: 70%;/*Largura da "coisa"*/
+    height: 100%;/*Altura da "coisa"*/
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);/*Linear gradient para fazer a passada bonita. Pode ter até 4 ou 5 valores, e pode ter diferentes cores. Usei 2 transparents para ficar bonito o efeito no botão.*/
+    transition: all 1s;/*Tempo que leva para a "coisa" chegar ao lado direito.*/
+    /* z-index: 1; */
+    transform: translate(-120px)/*Faz com que se mantenha -120px para a esquerda.*/
+    skew(-20deg);/*MUITO IMPORTANTE>>> Faz com que a "coisa" fique em 20degrees, fazendo com que fique com um efeito bonito. Se usar valores diferentes, irá ficar diferente! Exemplo para ter uma noção: 90deg*/
+}
+
+button:hover::before{
+    transform: translate(300px)/*Faz com que viaje 300px para a direita, fazendo com que passe por todo o button.*/
+    skew(-20deg);/*MUITO IMPORTANTE>>> Faz com que a "coisa" fique em 20degrees, fazendo com que fique com um efeito bonito. Se usar valores diferentes, irá ficar diferente! Exemplo para ter uma noção: 90deg*/
+}
+
+button:hover{
+    background: #109e8be0;/*cor de fundo quando passar o mouse.*/
+}

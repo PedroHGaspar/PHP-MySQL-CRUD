@@ -65,40 +65,42 @@ if(count($_POST) > 0){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Cadastrar Cliente</title>
 </head>
 <body>
-    <a href="clientes.php">Voltar para a lista.</a>
     <form method="POST" action="">
-        <div>
+        <div class="content">
+            <a href="clientes.php" style="font-size: 30px;">Voltar para a lista de clientes cadastrados.</a><br><br><br>
             <div>
                 <p>
                     <label>Nome: </label>
-                    <input value = "<?php if(isset($_POST['nome'])) echo $_POST['nome']; ?>" name="nome" type="text"><br>
+                    <input class="w3-input"  value = "<?php if(isset($_POST['nome'])) echo $_POST['nome']; ?>" name="nome" type="text"><br>
                 </p>
             </div>
             <div>
                 <p>
                     <label>Email: </label>
-                    <input value = "<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" name="email" type="text"><br>
+                    <input class="w3-input"  value = "<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" name="email" type="text"><br>
                 </p>
             </div>
             <div>
                 <p>
                     <label>Telefone: </label>
-                    <input placeholder="(48) 91234-5678" value = "<?php if(isset($_POST['telefone'])) echo $_POST['telefone']; ?>" name="telefone" type="text"><br>
+                    <input class="w3-input"  placeholder="(48) 91234-5678" value = "<?php if(isset($_POST['telefone'])) echo $_POST['telefone']; ?>" name="telefone" type="text"><br>
                 </p>
             </div>
             <div>
                 <p>
                     <label>Data de Nascimento: </label>
-                    <input value = "<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento']; ?>" name="nascimento" type="text"><br>
+                    <input class="w3-input"  value = "<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento']; ?>" name="nascimento" type="text"><br>
                 </p>
             </div>
 
             <div>
                 <p>
-                    <button type="submit">Salvar Cliente</button>
+                    <button class="buttonSize" type="submit">Salvar Cliente</button>
                 </p>
             </div>
         </div>
