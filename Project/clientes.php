@@ -1,7 +1,7 @@
 <?php
 include('conexao.php');
 
-$sql_clientes = "SELECT * FROM clientes";
+$sql_clientes = "SELECT * FROM `clientes` ORDER BY `clientes`.`id` ASC";
 $query_clientes = $mysqli->query($sql_clientes) or die($mysqli->error);
 $num_clientes = $query_clientes->num_rows;
 
@@ -78,7 +78,7 @@ $num_clientes = $query_clientes->num_rows;
           <td> <?php echo $nascimento; ?></td>
           <td> <?php echo $data_cadastro; ?></td>
           <td>
-          <a href="editar_cliente.php?id=<?php echo $cliente['id'];?>" title="EDITAR"><i class="fa-solid fa-pen"></i></a>
+          <a href="editar_cliente.php?id=<?php echo $cliente['id'] ?>" title="EDITAR"><i class="fa-solid fa-pen"></i></a><!-- Aqui o href estava dando problemas em relação ao GET la no arquivo editar clientes. Aqui ele estava chamando de outra maneira o editar clientes, e estava dando errado. Agora está dando certo.  -->
           <a href="deletar_cliente.php?id=<?php echo $cliente['id'];?>" title="DELETAR"><i class="fa-solid fa-circle-xmark"></i></a>
           </td>
       </tbody>
