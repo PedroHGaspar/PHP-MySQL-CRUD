@@ -20,27 +20,27 @@ $num_clientes = $query_clientes->num_rows;
     <section>
   <h1>Estes são os clientes cadastrados no seu sistema:</h1>
   <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0">
+    <table>
       <thead>
         <tr>
-          <th>Code</th>
-          <th>Company</th>
-          <th>Price</th>
-          <th>Change</th>
-          <th>Change %</th>
+          <th>ssss</th>
+          <th>sddasasd</th>
+          <th>dsasdadas</th>
+          <th>dsasda</th>
+          <th>asdsd</th>
         </tr>
       </thead>
     </table>
   </div>
   <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0">
+    <table>
       <tbody>
         <tr>
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
+          <td>asdds</td>
+          <td>dasdas</td>
+          <td>asdasd</td>
+          <td>dasdas</td>
+          <td>asdasd</td>
         </tr>
       </tbody>
     </table>
