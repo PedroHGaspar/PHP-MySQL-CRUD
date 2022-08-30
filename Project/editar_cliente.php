@@ -49,8 +49,8 @@ if(count($_POST) > 0){
     }
 
         if($deu_certo){
-            echo "<div><span><b>Cliente atualizado com sucesso!</b></span></div>";
-            unset($_POST);/*unset é uma função do php que limpa a variáve post, e o post será zerado, dai os valores não serão mostrados mais no input quando a execução der certo.*/ 
+            echo "<div class= sucessoCadastro ;><span><b>Cliente atualizado com sucesso!</b></span></div>";
+            unset($_POST);/*unset é uma função do php que limpa a variável post, e o post será zerado, dai os valores não serão mostrados mais no input quando a execução der certo.*/ 
         }
 
 }
@@ -73,7 +73,7 @@ $cliente = $query_cliente->fetch_assoc();
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Cadastrar Cliente</title>
+    <title>Editar Cliente</title>
 </head>
 <body>
     <form method="POST" action="">
@@ -94,7 +94,7 @@ $cliente = $query_cliente->fetch_assoc();
             <div>
                 <p>
                     <label>Telefone: </label>
-                    <input class="w3-input" placeholder="(48) 91234-5678" value = "<?php if(!empty($cliente['telefone']))  echo formataTelefone($cliente['telefone']); ?>" name="telefone" type="text"><br>
+                    <input class="w3-input" placeholder="(48) 91234-5678" value = "<?php if(!empty($cliente['telefone']))  echo formataTelefone($cliente['telefone']); ?>" name="telefone" type="text" maxlength="11" size="11"><br>
                 </p>
             </div>
             <div>
