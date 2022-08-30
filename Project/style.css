@@ -22,6 +22,7 @@ h1{
     text-align: center;
     align-items: center;
     margin: auto;
+    border-bottom: 0px solid #ccc !important;
 }
 
 table{

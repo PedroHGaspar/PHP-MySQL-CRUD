@@ -46,29 +46,29 @@ $cliente = $query_cliente->fetch_assoc();
             <div>
                 <p>
                     <label>Nome: </label>
-                    <input class="w3-input" value="<?php echo $cliente['nome']; ?>" name="nome" type="text"><br>
+                    <input class="w3-input" value="<?php echo $cliente['nome']; ?>" name="nome" type="text" disabled><br>
                 </p>
             </div>
             <div>
                 <p>
                     <label>Email: </label>
-                    <input class="w3-input" value="<?php echo $cliente['email']; ?>" name="email" type="text"><br>
+                    <input class="w3-input" value="<?php echo $cliente['email']; ?>" name="email" type="text" disabled><br>
                 </p>
             </div>
             <div>
                 <p>
                     <label>Telefone: </label>
-                    <input class="w3-input" placeholder="(48) 91234-5678" value="<?php if (!empty($cliente['telefone']))  echo formataTelefone($cliente['telefone']); ?>" name="telefone" type="text"><br>
+                    <input class="w3-input" placeholder="(48) 91234-5678" value="<?php if (!empty($cliente['telefone']))  echo formataTelefone($cliente['telefone']); ?>" name="telefone" type="text" disabled><br>
                 </p>
             </div>
             <div>
                 <p>
                     <label>Data de Nascimento: </label>
-                    <input class="w3-input" value="<?php if (!empty($cliente['nascimento'])) echo formataData($cliente['nascimento']); ?>" name="nascimento" type="text"><br>
+                    <input class="w3-input" value="<?php if (!empty($cliente['nascimento'])) echo formataData($cliente['nascimento']); ?>" name="nascimento" type="text" disabled><br>
                 </p>
             </div>
 
-            <div  class="msgDeletar">
+            <div class="msgDeletar">
                 <span>Você realmente deseja deletar esse cliente?</span><br>
                 <span style="font-size: 10px;">(Uma vez feito, não pode ser desfeito.)</span>
             </div>
@@ -84,7 +84,7 @@ $cliente = $query_cliente->fetch_assoc();
     <div class="msgBottom">
         <span>Desenvolvido com amor por <a class="msgBottom" href="https://github.com/PedroHGaspar" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i>PedroHGaspar</a></span>
     </div>
-            <!-- O atributo target definido como _blank, o que diz ao navegador para abrir o link em uma nova aba/janela, dependendo das configurações do navegador
+    <!-- O atributo target definido como _blank, o que diz ao navegador para abrir o link em uma nova aba/janela, dependendo das configurações do navegador
     
             O atributo rel definido como noreferrer noopener para evitar possíveis ataques maliciosos das páginas as quais você fizer um vínculo -->
 </body>
