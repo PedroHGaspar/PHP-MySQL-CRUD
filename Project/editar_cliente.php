@@ -1,6 +1,7 @@
 <?php
 
 include('conexao.php');
+$id = intval($_GET['id']);
 
 function limpar_texto($str){
     return preg_replace("/[^0-9]/", "", $str);
@@ -43,12 +44,12 @@ if(count($_POST) > 0){
         echo "<p><b>ERRO:$erro</b></p>";
     }else{
 
-        $sql_code = "INSERT INTO clientes (nome, email, telefone, nascimento, data_cadastro) VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
+        $sql_code = " UPDATE clientes SET nome = '$nome', email = '$email', telefone = '$telefone', nascimento = '$nascimento' WHERE id = '$id'";
         $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
     }
 
         if($deu_certo){
-            echo "<p><b>Cliente cadastrado com sucesso!</b></p>";
+            echo "<p><b>Cliente atualizado com sucesso!</b></p>";
             unset($_POST);/*unset é uma função do php que limpa a variáve post, e o post será zerado, dai os valores não serão mostrados mais no input quando a execução der certo.*/ 
         }
 
@@ -58,6 +59,7 @@ $id = intval($_GET['id']);
 $sql_cliente = "SELECT * FROM clientes WHERE id = '$id'";
 $query_cliente = $mysqli->query($sql_cliente) or die($mysqli->error);
 $cliente = $query_cliente->fetch_assoc();
+//Aqui em cima é pura lógica para pegar as informações do banco de dados: Basicamente a 4º linha chama a variável da 3º linha, a 3º linha chama a variável da 2º linha, e a 2º linha chama a variável da 1º linha. Uma chamando a outra para ficar mais simples de aplicar. A última variável ($cliente) vai ser usada logo abaixo no HTML para mostrar as informações desejadas através do ID, que é único para cara pessoa.
 
 ?>
 
@@ -91,19 +93,19 @@ $cliente = $query_cliente->fetch_assoc();
             <div>
                 <p>
                     <label>Telefone: </label>
-                    <input class="w3-input" placeholder="(48) 91234-5678" value = "<?php  echo $cliente['telefone']; ?>" name="telefone" type="text"><br>
+                    <input class="w3-input" placeholder="(48) 91234-5678" value = "<?php if(!empty($cliente['telefone']))  echo formataTelefone($cliente['telefone']); ?>" name="telefone" type="text"><br>
                 </p>
             </div>
             <div>
                 <p>
                     <label>Data de Nascimento: </label>
-                    <input class="w3-input" value = "<?php  echo $cliente['nascimento']; ?>" name="nascimento" type="text"><br>
+                    <input class="w3-input" value = "<?php if(!empty($cliente['nascimento'])) echo formataData($cliente['nascimento']); ?>" name="nascimento" type="text"><br>
                 </p>
             </div>
 
             <div>
                 <p>
-                    <button class="buttonSize" type="submit">Salvar Cliente</button>
+                    <button class="buttonSize" type="submit">Atualizar Cliente</button>
                 </p>
             </div>
         </div>

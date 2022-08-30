@@ -75,25 +75,25 @@ if(count($_POST) > 0){
             <a href="clientes.php" style="font-size: 30px;">Voltar para a lista de clientes cadastrados.</a><br><br><br>
             <div>
                 <p>
-                    <label>Nome: </label>
+                    <label>Nome* </label>
                     <input class="w3-input"  value = "<?php if(isset($_POST['nome'])) echo $_POST['nome']; ?>" name="nome" type="text"><br>
                 </p>
             </div>
             <div>
                 <p>
-                    <label>Email: </label>
+                    <label>Email* </label>
                     <input class="w3-input"  value = "<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" name="email" type="text"><br>
                 </p>
             </div>
             <div>
                 <p>
-                    <label>Telefone: </label>
+                    <label>Telefone </label>
                     <input class="w3-input"  placeholder="(48) 91234-5678" value = "<?php if(isset($_POST['telefone'])) echo $_POST['telefone']; ?>" name="telefone" type="text"><br>
                 </p>
             </div>
             <div>
                 <p>
-                    <label>Data de Nascimento: </label>
+                    <label>Data de Nascimento </label>
                     <input class="w3-input"  value = "<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento']; ?>" name="nascimento" type="text"><br>
                 </p>
             </div>

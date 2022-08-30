@@ -53,14 +53,11 @@ $num_clientes = $query_clientes->num_rows;
                 //substr(string $string, int $start, int $length = ?): string
                 $telefone = "Não Informado";
                 if(!empty($cliente['telefone'])){
-                    $ddd = substr($cliente['telefone'], 0 , 2);
-                    $parte1 = substr($cliente['telefone'], 2, 5);
-                    $parte2 = substr($cliente['telefone'], 7);
-                    $telefone = "($ddd) $parte1-$parte2";
-                }//Tudo isso aqui em cima serve para fazer com que o telefone apareça direitinho na hora da pessoa olhar o relatório de clientes cadastrados.
+                    $telefone = formataTelefone($cliente['telefone']);
+                }//Função formataTelefone la no conexao.php
 
                 if(!empty($cliente['nascimento'])){
-                    $nascimento = implode('/', array_reverse(explode('-', $cliente['nascimento'])));//explode serve para inverter o A/M/D para D/M/A, o implode serve para adicionar a /.
+                    $nascimento = formataData($cliente['nascimento']);
                 }
 
                 $data_cadastro = date("d/m/Y H:i", strtotime($cliente['data_cadastro']));//essa função strtotime é do PHP e serve para calcular direitinho a data. A função date tem suas pecualiaridades e necessita abrir o manual dela. Exemplo é aquele d/m/Y H:i, ali estou dizendo que eu quero que apareço em dia/mes/ano e a hora e minutos. 
