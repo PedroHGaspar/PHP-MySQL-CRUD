@@ -132,3 +132,50 @@ button:hover::before{
 button:hover{
     background: #109e8be0;/*cor de fundo quando passar o mouse.*/
 }
+
+.botaoSim:hover{
+    background: #9e1b04e0;/*cor de fundo quando passar o mouse no botão.*/
+}
+.botaoNao:hover{
+    background: #109e8be0;/*cor de fundo quando passar o mouse.*/
+}
+
+.msgDeletar{
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+
+}
+
+.sucessoCadastro{
+    text-align: center;
+    position: absolute;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    margin-top: 17em;
+    font-weight: bolder;
+    font-size: 35px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.msgBottom{
+    text-align: center;
+    color: lightgreen;
+    align-items: center;
+    font-family: serif;
+    letter-spacing: 3px;
+    position: fixed;
+    text-align: center;
+    bottom: 15px;
+    width: 88%;
+}
+a.msgBottom{
+    margin: 0;
+    padding: 0;
+    width: 159px;
+}

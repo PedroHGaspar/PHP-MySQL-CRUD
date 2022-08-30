@@ -49,7 +49,7 @@ if(count($_POST) > 0){
     }
 
         if($deu_certo){
-            echo "<p><b>Cliente cadastrado com sucesso!</b></p>";
+            echo "<div class= sucessoCadastro ;><span><b>Cliente cadastrado com sucesso!</b></span></div>";
             unset($_POST);/*unset é uma função do php que limpa a variáve post, e o post será zerado, dai os valores não serão mostrados mais no input quando a execução der certo.*/ 
         }
 
@@ -67,6 +67,7 @@ if(count($_POST) > 0){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Cadastrar Cliente</title>
 </head>
 <body>
@@ -88,7 +89,7 @@ if(count($_POST) > 0){
             <div>
                 <p>
                     <label>Telefone </label>
-                    <input class="w3-input"  placeholder="(48) 91234-5678" value = "<?php if(isset($_POST['telefone'])) echo $_POST['telefone']; ?>" name="telefone" type="text"><br>
+                    <input class="w3-input"  placeholder="(48) 91234-5678" value = "<?php if(isset($_POST['telefone'])) echo $_POST['telefone']; ?>" name="telefone" type="text" maxlength="11" size="11"><br>
                 </p>
             </div>
             <div>
@@ -105,5 +106,11 @@ if(count($_POST) > 0){
             </div>
         </div>
     </form>
+    <div class="msgBottom">
+        <span>Desenvolvido com amor por <a class="msgBottom" href="https://github.com/PedroHGaspar" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i>PedroHGaspar</a></span>
+    </div>
+            <!-- O atributo target definido como _blank, o que diz ao navegador para abrir o link em uma nova aba/janela, dependendo das configurações do navegador
+    
+            O atributo rel definido como noreferrer noopener para evitar possíveis ataques maliciosos das páginas as quais você fizer um vínculo -->
 </body>
 </html>
