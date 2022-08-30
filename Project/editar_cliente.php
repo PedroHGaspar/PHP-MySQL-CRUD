@@ -49,7 +49,7 @@ if(count($_POST) > 0){
     }
 
         if($deu_certo){
-            echo "<p><b>Cliente atualizado com sucesso!</b></p>";
+            echo "<div><span><b>Cliente atualizado com sucesso!</b></span></div>";
             unset($_POST);/*unset é uma função do php que limpa a variáve post, e o post será zerado, dai os valores não serão mostrados mais no input quando a execução der certo.*/ 
         }
 
