@@ -151,6 +151,17 @@ button:hover{
 
 }
 
+.pagInicial{
+    text-align: center;
+    width: 100%;
+    font-size: 29px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    margin-top: 9em;
+    position: relative;
+    line-height: 90px;
+}
+
 .sucessoCadastro{
     text-align: center;
     position: absolute;
