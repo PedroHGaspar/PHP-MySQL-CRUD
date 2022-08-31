@@ -22,16 +22,7 @@ if(count($_POST) > 0){
         $erro = "Preencha o e-mail";
     }
 
-    if(!empty($nascimento)){
-        $pedacos = explode('/', $nascimento);
-        if(count($pedacos) == 3){
-            $nascimento = implode('-', array_reverse($pedacos));/*A função explode do php faz com que tudo seja "explode" e seja transformado em array, em seguida, a função array_reverse é uma function do php que faz com que tudo se inverta. O que era ano/mes/dia agora vai ser dia/mes/ano*/
-            /*A função implode é uma função do php que faz com que uma matriz seja transformada em uma string.*/ 
-        }
-            else{
-                $erro = "A data de nascimento deve seguir o padrão D/M/A.";
-            }
-    }
+
 
     if(!empty($telefone)){
         $telefone = limpar_texto($telefone);
@@ -77,13 +68,13 @@ if(count($_POST) > 0){
             <div>
                 <p>
                     <label>Nome* </label>
-                    <input class="w3-input"  value = "<?php if(isset($_POST['nome'])) echo $_POST['nome']; ?>" name="nome" type="text"><br>
+                    <input class="w3-input"  value = "<?php if(isset($_POST['nome'])) echo $_POST['nome']; ?>" name="nome" type="text" required><br>
                 </p>
             </div>
             <div>
                 <p>
                     <label>Email* </label>
-                    <input class="w3-input"  value = "<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" name="email" type="text"><br>
+                    <input class="w3-input"  value = "<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" name="email" type="text" required><br>
                 </p>
             </div>
             <div>
@@ -94,8 +85,8 @@ if(count($_POST) > 0){
             </div>
             <div>
                 <p>
-                    <label>Data de Nascimento </label>
-                    <input class="w3-input"  value = "<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento']; ?>" name="nascimento" type="text"><br>
+                    <label>Data de Nascimento* </label>
+                    <input class="w3-input"  value = "<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento']; ?>" name="nascimento" type="date" required><br>
                 </p>
             </div>
 
