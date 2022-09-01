@@ -27,12 +27,12 @@ if(count($_POST) > 0){
     if(!empty($telefone)){
         $telefone = limpar_texto($telefone);
         if(strlen($telefone) != 11){
-            $erro = "O telefone deve ser preenchido no padrão (48) 91234-5678";
+            $erro = "<div class= sucessoLoginCadastrar ;><span><b>O telefone deve ser preenchido no padrão (48) 91234-5678</b></span></div>";
         }
     }
 
     if($erro == true){
-        echo "<p><b>ERRO:$erro</b></p>";
+        echo $erro;
     }else{
 
         $sql_code = "INSERT INTO clientes (nome, email, telefone, nascimento, data_cadastro) VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
@@ -89,7 +89,7 @@ if(count($_POST) > 0){
                     <input class="w3-input"  value = "<?php if(isset($_POST['nascimento'])) echo $_POST['nascimento']; ?>" name="nascimento" type="date" required><br>
                 </p>
             </div>
-
+            <br>
             <div>
                 <p>
                     <button class="buttonSize" type="submit">Salvar Cliente</button>
