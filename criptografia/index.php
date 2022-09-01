@@ -1,6 +1,7 @@
 <?php
 
-if(isset($_POST['email'])){
+
+if (isset($_POST['email'])) {
     include('conexao.php');
 
     $email = $_POST['email'];
@@ -8,6 +9,9 @@ if(isset($_POST['email'])){
 
     $mysqli->query("INSERT INTO senhas (email, senha) VALUES ('$email', '$senha')");
 }
+
+if (isset($_POST['confirmar'])) //Aqui ele irá pegar o isset post do button lá embaixo, caso o button seja pressionado depois dos dados serem inseridos, irá redirecionar para a função header logo abaixo, que é a função que leva pra outra página, no caso, a página de login.
+    header("Location: login.php")
 
 ?>
 
@@ -50,7 +54,7 @@ if(isset($_POST['email'])){
             <br>
             <div>
                 <p>
-                    <button class="buttonSize" type="submit">Cadastrar Usuário</button>
+                <button class="botaoNao" name="confirmar" value="1" type="submit">Cadastrar Usuário</button>
                 </p>
             </div>
         </div>

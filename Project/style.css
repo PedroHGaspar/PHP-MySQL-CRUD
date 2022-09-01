@@ -88,7 +88,7 @@ section{
     font-size: 17px;
 }
 
-button{
+button, .styleBotao{
     padding: 18px 30px; /*O primeiro padding aumenta altura, segundo padding aumentar comprimento*/
     font-size: 16px;
     border: none;
@@ -106,7 +106,7 @@ button{
     transition: all 0.5s;/*Essa transition é para aparecer a cor rosa quando passar o mouse. O tempo é o quanto vai demorar pra aparecer o rosa.*/
 }
 
-button, input {
+button, input, .styleBotao {
     overflow: hidden !important;
 }
 
@@ -208,4 +208,32 @@ a.msgBottom{
     font-weight: bolder;
     font-size: 14px;
     color: #000000;
+}
+
+.styleBotao::before{
+    content: "";/*content vazio cria uma "coisa" invisível. Que é o flash branco que irá passar pelo botão.*/
+    position: absolute;/*Position absolute vai fazer com que passe por cima do botão sem nenhum dificuldade.*/
+    /* display: block; */
+    top: 0; /*margin top*/
+    left: -70px; /*A "coisa" invisível fica -50px para a esquerda, ficando totalmente escondida de quem vê o botão, aparecendo só quando passa o mouse.*/
+    width: 60%;/*Largura da "coisa"*/
+    height: 100%;/*Altura da "coisa"*/
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);/*Linear gradient para fazer a passada bonita. Pode ter até 4 ou 5 valores, e pode ter diferentes cores. Usei 2 transparents para ficar bonito o efeito no botão.*/
+    transition: all 1s;/*Tempo que leva para a "coisa" chegar ao lado direito.*/
+    /* z-index: 1; */
+    transform: translate(-120px)/*Faz com que se mantenha -120px para a esquerda.*/
+    skew(-20deg);/*MUITO IMPORTANTE>>> Faz com que a "coisa" fique em 20degrees, fazendo com que fique com um efeito bonito. Se usar valores diferentes, irá ficar diferente! Exemplo para ter uma noção: 90deg*/
+}
+
+.styleBotao:hover::before{
+    transform: translate(350px)/*Faz com que viaje 300px para a direita, fazendo com que passe por todo o button.*/
+    skew(-20deg);/*MUITO IMPORTANTE>>> Faz com que a "coisa" fique em 20degrees, fazendo com que fique com um efeito bonito. Se usar valores diferentes, irá ficar diferente! Exemplo para ter uma noção: 90deg*/
+}
+
+.styleBotao:hover{
+    background: #109e8be0;/*cor de fundo quando passar o mouse.*/
+}
+
+.styleBotao{
+    text-decoration: none;
 }
