@@ -16,7 +16,7 @@ if (isset($_POST['email'])) {
         if(!isset($_SESSION))
             session_start();
             $_SESSION['usuario'] = $usuario['id'];
-            header("Location: ../Project/clientes.php");//função header do php faz com que mande comando para o HTTP e que volte para o location, no caso, o index.php ou a página que eu quiser.  
+            header("Location: ../Project/pagina_inicial.php");//função header do php faz com que mande comando para o HTTP e que volte para o location, no caso, o index.php ou a página que eu quiser.  
         
     } else {
         echo "<div class= sucessoLogin ;><span><b>Falha ao logar. Senha ou e-mail incorretos.</b></span></div>";

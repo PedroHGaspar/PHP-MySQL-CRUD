@@ -2,6 +2,7 @@
 
 include('conexao.php');
 $id = intval($_GET['id']);
+$deu_certo = "";
 
 function limpar_texto($str){
     return preg_replace("/[^0-9]/", "", $str);
@@ -27,18 +28,19 @@ if(count($_POST) > 0){
     if(!empty($telefone)){
         $telefone = limpar_texto($telefone);
         if(strlen($telefone) != 11){
-            $erro = "O telefone deve ser preenchido no padrão (48) 91234-5678";
+            $erro = "<div class= sucessoCadastro ;><span><b>ERRO: O telefone deve ser preenchido no padrão (48) 91234-5678</b></span></div>";
         }
     }
 
     if($erro == true){
-        echo "<p><b>ERRO:$erro</b></p>";
+        echo $erro;
     }else{
 
         $sql_code = " UPDATE clientes SET nome = '$nome', email = '$email', telefone = '$telefone', nascimento = '$nascimento' WHERE id = '$id'";
         $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
     }
 
+        
         if($deu_certo){
             echo "<div class= sucessoCadastro ;><span><b>Cliente atualizado com sucesso!</b></span></div>";
             unset($_POST);/*unset é uma função do php que limpa a variável post, e o post será zerado, dai os valores não serão mostrados mais no input quando a execução der certo.*/ 
