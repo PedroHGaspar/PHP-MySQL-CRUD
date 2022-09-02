@@ -161,6 +161,16 @@ button:hover{
     position: relative;
     line-height: 90px;
 }
+.pagClientes{
+    text-align: center;
+    width: 100%;
+    font-size: 29px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    margin-top: -50px;
+    position: relative;
+    line-height: 90px;
+}
 
 .sucessoCadastro{
     text-align: center;

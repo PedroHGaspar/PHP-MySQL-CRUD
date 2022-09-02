@@ -9,12 +9,19 @@ function limpar_texto($str){
 if(count($_POST) > 0){
 
     include('conexao.php');
+    include ('email/send.php');
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
     $nascimento = $_POST['nascimento'];
+    $senha_descriptografada = $_POST['senha'];
+    
+    if(strlen($senha_descriptografada) < 6 && strlen($senha_descriptografada) > 16){
+        $erro = "A senha deve ter entre 6 e 16 caracteres.";
+    }
 
+    
     if(empty($nome)){
         $erro = "Preencha o nome";
     }
@@ -34,12 +41,23 @@ if(count($_POST) > 0){
     if($erro == true){
         echo $erro;
     }else{
+        $senha = password_hash($senha_descriptografada, PASSWORD_DEFAULT);//Aqui a senha vai ser enviada já criptografada, então antes dela ser enviada assim, precisa salvar ela antes, se não a senha irá ser criptografada e o cliente não terá acesso ao sistema.
 
-        $sql_code = "INSERT INTO clientes (nome, email, telefone, nascimento, data_cadastro) VALUES ('$nome', '$email', '$telefone', '$nascimento', NOW())";
+        $sql_code = "INSERT INTO clientes (nome, email, senha, telefone, nascimento, data_cadastro) VALUES ('$nome', '$email', '$senha', '$telefone', '$nascimento', NOW())";
         $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
     }
 
         if($deu_certo){
+            enviar_email($email,"Sua conta no meu site foi criada.","<h1>Parabéns!</h1>
+            <p>Sua conta no meu site foi criada!</p>
+            <p>
+                <b>Login: $email</b>
+                <b>Senha: $senha_descriptografada</b>
+            </p>
+            <p>
+            Para fazer login, acesse <a href=\"https://meusitedeteste.com/login.php\">este link!</a>
+            </p>
+            ");
             echo "<div class= sucessoCadastro ;><span><b>Cliente cadastrado com sucesso!</b></span></div>";
             unset($_POST);/*unset é uma função do php que limpa a variáve post, e o post será zerado, dai os valores não serão mostrados mais no input quando a execução der certo.*/ 
         }
@@ -48,7 +66,7 @@ if(count($_POST) > 0){
 
 ?>
 
-
+<a href=""></a>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -75,6 +93,12 @@ if(count($_POST) > 0){
                 <p>
                     <label>Email* </label>
                     <input class="w3-input"  value = "<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" name="email" type="text" required><br>
+                </p>
+            </div>
+            <div>
+            <p>
+                    <label>Senha de Acesso do Cliente* </label>
+                    <input class="w3-input"  value = "<?php if(isset($_POST['senha'])) echo $_POST['senha']; ?>" name="senha" type="text" required><br>
                 </p>
             </div>
             <div>

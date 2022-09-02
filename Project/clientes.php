@@ -32,6 +32,11 @@ $num_clientes = $query_clientes->num_rows;
 
 <body>
     <section>
+    <div class="pagClientes">
+            <div>
+                <a href="cadastrar_cliente.php">(Adicionar um novo cliente ao sistema.)</a>
+            </div>
+        </div>
         <h1>Estes são os clientes cadastrados no seu sistema:</h1>
         <div class="tbl-header">
             <table>
@@ -94,7 +99,7 @@ $num_clientes = $query_clientes->num_rows;
     <div class="msgBottom">
         <span>Desenvolvido com amor por <a class="msgBottom" href="https://github.com/PedroHGaspar" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i>PedroHGaspar</a></span>
     </div>
-            <!-- O atributo target definido como _blank, o que diz ao navegador para abrir o link em uma nova aba/janela, dependendo das configurações do navegador
+    <!-- O atributo target definido como _blank, o que diz ao navegador para abrir o link em uma nova aba/janela, dependendo das configurações do navegador
     
             O atributo rel definido como noreferrer noopener para evitar possíveis ataques maliciosos das páginas as quais você fizer um vínculo -->
 </body>
