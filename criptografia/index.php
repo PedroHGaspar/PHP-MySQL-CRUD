@@ -26,7 +26,7 @@ if (isset($_POST['confirmar'])) //Aqui ele irá pegar o isset post do button lá
     <link rel="stylesheet" href="../Project/style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Cadastrar Cliente</title>
+    <title>Cadastrar Usuário</title>
 </head>
 
 <body>
