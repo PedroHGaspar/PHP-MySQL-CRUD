@@ -25,7 +25,7 @@
         $mail->Body = $mensagem_html;
 
         if ($mail->send()) {
-            echo "<div class= sucessoCadastroSendEmail ;><span><b>Email enviado com sucesso!!</b></span></div>";
+            echo "<div class= sucessoCadastroSendEmail ;><span><b>Email enviado com sucesso!</b></span></div>";
             return true;
         } else {
             echo "<div class= falhaCadastroSendEmail ;><span><b>O e-mail não foi enviado. Entre em contato com o suporte.</b></span></div>";

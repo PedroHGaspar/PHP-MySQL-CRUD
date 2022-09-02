@@ -4,7 +4,8 @@ if (isset($_POST['email'])) {
 
     include('conexao.php');
 
-    $email = $_POST['email'];
+
+    $email = $mysqli->escape_string($_POST['email']);//Essa função do mysqli->escape_string serve para evitar o MySQL injection, uma falha de segurança em que qualquer um pode ter acesso ao banco de dados caso não seja usado essa função para proteger.
     $senha = $_POST['senha'];
 
     $sql_code = "SELECT * FROM senhas WHERE email = '$email' LIMIT 1";

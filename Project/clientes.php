@@ -32,7 +32,7 @@ $num_clientes = $query_clientes->num_rows;
 
 <body>
     <section>
-    <div class="pagClientes">
+        <div class="pagClientes">
             <div>
                 <a href="cadastrar_cliente.php">(Adicionar um novo cliente ao sistema.)</a>
             </div>
@@ -52,9 +52,11 @@ $num_clientes = $query_clientes->num_rows;
             </table>
 
             <?php if ($num_clientes == 0) { ?>
-                <tr>
-                    <td>Nenhum cliente foi cadastrado.</td>
-                </tr>
+                <div class="msgDeletar">
+                    <tr>
+                        <td>Nenhum cliente foi cadastrado.</td>
+                    </tr>
+                </div>
                 <?php } else {
 
                 while ($cliente = $query_clientes->fetch_assoc()) {/*Essa função fetch_assoc é do PHP, serve para retornar um array do row, link do manual: https://www.php.net/manual/pt_BR/mysqli-result.fetch-assoc.php*/

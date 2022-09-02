@@ -58,7 +58,7 @@ if(count($_POST) > 0){
             Para fazer login, acesse <a href=\"https://meusitedeteste.com/login.php\">este link!</a>
             </p>
             ");
-            echo "<div class= sucessoCadastro ;><span><b>Cliente cadastrado e</b></span></div>";
+            echo "<div class= sucessoCadastro ;><span><b>Cliente cadastrado.</b></span></div>";
             unset($_POST);/*unset é uma função do php que limpa a variáve post, e o post será zerado, dai os valores não serão mostrados mais no input quando a execução der certo.*/ 
         }
 
