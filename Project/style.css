@@ -87,6 +87,10 @@ section{
 .buttonSize{
     font-size: 17px;
 }
+.buttonSizeCadastrar{
+    font-size: 17px;
+    margin-top: 42px
+}
 
 button, .styleBotao{
     padding: 18px 30px; /*O primeiro padding aumenta altura, segundo padding aumentar comprimento*/
@@ -178,9 +182,21 @@ button:hover{
     align-items: center;
     align-content: center;
     width: 100%;
-    margin-top: 17em;
+    margin-top: 18.5em;
     font-weight: bolder;
-    font-size: 35px;
+    font-size: 30px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+.sucessoCadastroSendEmail, .falhaCadastroSendEmail{
+    text-align: center;
+    position: absolute;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    margin-top: 19.5em;
+    font-weight: bolder;
+    font-size: 30px;
     color: #ffffff;
     letter-spacing: 1px;
 }

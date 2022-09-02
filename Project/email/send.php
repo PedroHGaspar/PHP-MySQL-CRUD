@@ -10,7 +10,7 @@
 
         $mail = new PHPMailer;
         $mail->isSMTP();
-        $mail->SMTPDebug = 2;
+        $mail->SMTPDebug = 0;
         $mail->Host = 'smtp.gmail.com';
         $mail->Port = 587;
         $mail->SMTPAuth = true;
@@ -25,10 +25,10 @@
         $mail->Body = $mensagem_html;
 
         if ($mail->send()) {
-            echo "E-mail enviado com sucesso!!";
+            echo "<div class= sucessoCadastroSendEmail ;><span><b>Email enviado com sucesso!!</b></span></div>";
             return true;
         } else {
-            echo "Falha ao enviar e-mail.";
+            echo "<div class= falhaCadastroSendEmail ;><span><b>O e-mail não foi enviado. Entre em contato com o suporte.</b></span></div>";
             return false;
         }
     }
