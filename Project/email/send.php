@@ -15,7 +15,7 @@
         $mail->Port = 587;
         $mail->SMTPAuth = true;
         $mail->Username = 'testepedrogaspar@gmail.com';
-        $mail->Password = 'pkxjfvamrcyeonwa';
+        $mail->Password = 'keedsd@#d212dvcasd';
         $mail->SMTPSecure = false;
         $mail->isHTML(true);
         $mail->CharSet = 'UTF-8';
