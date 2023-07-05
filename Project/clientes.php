@@ -15,7 +15,6 @@ $num_clientes = $query_clientes->num_rows;
         });
     }).resize();
 
-    /*Aqui, mesmo eu não entendendo muito(AINDA) de Jquery, eu usei essa lógica que achei no google para reformar o tamanho do scroll da table.*/
 </script>
 
 <!DOCTYPE html>

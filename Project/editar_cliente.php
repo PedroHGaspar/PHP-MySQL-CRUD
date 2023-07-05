@@ -52,7 +52,6 @@ $id = intval($_GET['id']);
 $sql_cliente = "SELECT * FROM clientes WHERE id = '$id'";
 $query_cliente = $mysqli->query($sql_cliente) or die($mysqli->error);
 $cliente = $query_cliente->fetch_assoc();
-//Aqui em cima é pura lógica para pegar as informações do banco de dados: Basicamente a 4º linha chama a variável da 3º linha, a 3º linha chama a variável da 2º linha, e a 2º linha chama a variável da 1º linha. Uma chamando a outra para ficar mais simples de aplicar. A última variável ($cliente) vai ser usada logo abaixo no HTML para mostrar as informações desejadas através do ID, que é único para cara pessoa.
 
 ?>
 

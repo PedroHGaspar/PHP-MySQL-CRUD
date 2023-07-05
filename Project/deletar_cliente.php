@@ -32,9 +32,7 @@ if (isset($_POST['confirmar'])) { //Aqui o POST confirmar só vai existir se a p
             <div class="msgBottom">
                 <span>Desenvolvido com amor por <a class="msgBottom" href="https://github.com/PedroHGaspar" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i>PedroHGaspar</a></span>
             </div>
-            <!-- O atributo target definido como _blank, o que diz ao navegador para abrir o link em uma nova aba/janela, dependendo das configurações do navegador
-    
-            O atributo rel definido como noreferrer noopener para evitar possíveis ataques maliciosos das páginas as quais você fizer um vínculo -->
+            <!--O atributo rel definido como noreferrer noopener para evitar possíveis ataques maliciosos das páginas as quais você fizer um vínculo -->
         </body>
 
         </html>
@@ -48,8 +46,6 @@ $id = intval($_GET['id']);
 $sql_cliente = "SELECT * FROM clientes WHERE id = '$id'";
 $query_cliente = $mysqli->query($sql_cliente) or die($mysqli->error);
 $cliente = $query_cliente->fetch_assoc();
-//Aqui em cima é pura lógica para pegar as informações do banco de dados: Basicamente a 4º linha chama a variável da 3º linha, a 3º linha chama a variável da 2º linha, e a 2º linha chama a variável da 1º linha. Uma chamando a outra para ficar mais simples de aplicar. A última variável ($cliente) vai ser usada logo abaixo no HTML para mostrar as informações desejadas através do ID, que é único para cara pessoa.
-
 ?>
 
 
@@ -111,9 +107,6 @@ $cliente = $query_cliente->fetch_assoc();
     <div class="msgBottom">
         <span>Desenvolvido com amor por <a class="msgBottom" href="https://github.com/PedroHGaspar" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i>PedroHGaspar</a></span>
     </div>
-    <!-- O atributo target definido como _blank, o que diz ao navegador para abrir o link em uma nova aba/janela, dependendo das configurações do navegador
-    
-            O atributo rel definido como noreferrer noopener para evitar possíveis ataques maliciosos das páginas as quais você fizer um vínculo -->
 </body>
 
 </html>
