@@ -40,3 +40,4 @@ Levei cerca de 10 horas para fazer tudo, desde a primeira linha de código até 
 Peço que ignorem a parte do Front End pois fiz algo bem simples, eu foquei na funcionalidade, e não fiz botões custom ou componentes custom,
 pois creio que a funcionalidade é o principal... Mas me vejo na obrigação de pedir para não reparar no Front End, já que sou um Dev Front End hahahaha.
 
+Ah, eu sei que não faz parte, mas eu finalizei um projeto meu que fiquei bem animado, um portfolio próprio em que eu fiz o design e foi tudo realizado com React, Node.js e Tailwind CSS. Caso queira dar uma olhada, esse é o link: https://main-portfolio-pedro.vercel.app/
